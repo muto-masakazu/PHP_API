@@ -9,10 +9,10 @@ jobs:
       - checkout
       - run:
         name: composer install
-        command: |
-        composer require phpunit/phpunit
-        composer require guzzlehttp/guzzle
-      - run: 
+        command: composer require phpunit/phpunit
+      - run:
+        name: composer install
+        command: composer require guzzlehttp/guzzle
+      - run:
         name: API TEST
         command: vendor/phpunit/phpunit/phpunit tests/api_test.php
-        
