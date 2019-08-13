@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/circleci/php:7.1-fpm-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+        name: composer install
+        command: |
+        composer require phpunit/phpunit
+        composer require guzzlehttp/guzzle
+      - run: 
+        name: API TEST
+        command: vendor/phpunit/phpunit/phpunit tests/api_test.php
+        
