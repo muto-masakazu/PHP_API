@@ -8,10 +8,10 @@ jobs:
     steps:
       - checkout
       - run:
-        name: composer install
+        name: composer install phpunit
         command: composer require phpunit/phpunit
       - run:
-        name: composer install
+        name: composer install guzzle
         command: composer require guzzlehttp/guzzle
       - run:
         name: API TEST
