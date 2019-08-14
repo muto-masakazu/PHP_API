@@ -28,9 +28,5 @@ jobs:
           name: Configure & start Apache
           command: sudo service apache2 start
       - run:
-          command: |
-            setcap cap_net_raw+ep /bin/ping 
-            ping 127.0.0.1
-      - run:
           name: API TEST
           command: vendor/phpunit/phpunit/phpunit tests/api_test.php
