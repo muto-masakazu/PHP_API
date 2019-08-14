@@ -27,8 +27,5 @@ jobs:
           name: Configure & start Apache
           command: sudo service apache2 start
       - run:
-          name: echo
-          command: echo localhost
-      - run:
           name: API TEST
           command: vendor/phpunit/phpunit/phpunit tests/api_test.php
