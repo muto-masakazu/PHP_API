@@ -18,5 +18,19 @@ jobs:
             - ./vendor  
           key: v1-dependencies-{{ checksum "composer.json" }}  
       - run:
-          name: API TEST
-          command: vendor/phpunit/phpunit/phpunit tests/api_test.php
+          name: Install some basic tools
+          command: |
+            sudo apt-get update -y
+            sudo apt-get upgrade -y
+            sudo apt-get install -y nano
+      - run:
+          name: Configure & start Apache
+          command: |
+            sudo cp ~/circleci-resolve-host/.circleci/example.conf /etc/apache2/sites-available/example.conf
+            sudo a2ensite example
+            sudo service apache2 start
+      - run:
+          name: Run tests
+          command: |
+            curl example.localhost
+      
