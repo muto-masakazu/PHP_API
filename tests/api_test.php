@@ -13,12 +13,12 @@ class sampleTest extends TestCase
         //取得
         $status = $obj->github_login_name;
         $message = $obj->id;
-        $rows = $obj->data;
+        //$rows = $obj->data;
 
         //loop（参考）
-        foreach ($rows as $row) {
-            //echo $row->name;
-        }
+        // foreach ($rows as $row) {
+        //     //echo $row->name;
+        // }
         //評価
         $this->assertEquals("muto-masakazu",$status);
         $this->assertEquals("muto-masakazu.",$message);
