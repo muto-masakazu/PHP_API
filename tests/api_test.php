@@ -21,7 +21,7 @@ class sampleTest extends TestCase
         // }
         //評価
         $this->assertEquals("muto-masakazu",$status);
-        $this->assertEquals("muto-masakazu.",$message);
+        $this->assertEquals("muto-masakazu",$message);
         // $this->assertRegExp('/^Hello.+\.$/',$message);
         // $this->assertCount(2,$rows);
     }
