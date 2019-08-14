@@ -6,7 +6,7 @@ class sampleTest extends TestCase
     {
         $client = new GuzzleHttp\Client();
         //get
-        $res = $client->get('http://localhost:8080/PHP_API/src/index.php',[
+        $res = $client->get('http://localhost/PHP_API/src/index.php',[
             'query'=>[
                 'name'=>'GET',
                 'email'=>'get@poo.com',
@@ -35,7 +35,7 @@ class sampleTest extends TestCase
     {
         $client = new GuzzleHttp\Client();
         //get
-        $res = $client->post('http://localhost:8080/PHP_API/src/index.php',[
+        $res = $client->post('http://localhost/PHP_API/src/index.php',[
             'query'=>[
                 'name'=>'POST',
                 'email'=>'poo@poo.com',
