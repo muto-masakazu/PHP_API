@@ -7,6 +7,16 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - restore_cache:  
+          keys:  
+          - v1-dependencies-{{ checksum "composer.json" }}  
+          # fallback to using the latest cache if no exact match is found  
+          - v1-dependencies-  
+      - run: composer install -n --prefer-dist  
+      - save_cache:  
+          paths:  
+            - ./vendor  
+          key: v1-dependencies-{{ checksum "composer.json" }}  
       - run:
-        name: API TEST
-        command: vendor/phpunit/phpunit/phpunit tests/api_test.php
+          name: API TEST
+          command: vendor/phpunit/phpunit/phpunit tests/api_test.php
