@@ -26,11 +26,7 @@ jobs:
       - run:
           name: Configure & start Apache
           command: |
-            sudo cp ~/repo/.circleci/example.conf /etc/apache2/sites-available/example.conf
-            sudo a2ensite example
             sudo service apache2 start
       - run:
-          name: Run tests
-          command: |
-            curl example.localhost
-      
+          name: API TEST
+          command: vendor/phpunit/phpunit/phpunit tests/api_test.php
