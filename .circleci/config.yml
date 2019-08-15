@@ -10,15 +10,15 @@ commands:
   restore-composer:
     steps:
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum 'composer.json'}}
-          - v1-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum 'composer.json'}}
+            - v1-dependencies-
   save-composer:
     steps:
       - save_cache:
-        paths:
-          - ./vender
-        key: v1-dependencies-{{ checksum 'composer.json'}}
+          paths:
+            - ./vender
+          key: v1-dependencies-{{ checksum 'composer.json'}}
 
 jobs:
   build:
