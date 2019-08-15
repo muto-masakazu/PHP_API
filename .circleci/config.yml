@@ -29,12 +29,12 @@ jobs:
       name: default
     steps:
       - checkout
-      - restore-composer
-      # - restore_cache:
-      #     keys:
-      #       - v1-dependencies-{{ checksum "composer.json" }}
-      #       # fallback to using the latest cache if no exact match is found
-      #       - v1-dependencies-
+      # - restore-composer
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run: composer install -n --prefer-dist
       # - save_cache:
       #     paths:
