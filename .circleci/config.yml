@@ -26,7 +26,7 @@ jobs:
     #   - image: circleci/php:7.2-apache-browsers
     # working_directory: ~/repo
     executor:
-    name: default
+      name: default
     steps:
       - checkout
       - restore_cache
