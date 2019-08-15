@@ -4,7 +4,7 @@ executors:
   default:
     working_directory: ~/repo
     docker:
-      - image: circleci/php7.2-apache-browsers
+      - image: circleci/php:7.2-apache-browsers
 
 commands:
   restore-composer:
