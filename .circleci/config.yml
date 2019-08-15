@@ -1,35 +1,12 @@
 version: 2.1
 
-executors:
-  default:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/php7.2-apache-browsers
-
-commands:
-  restore-composer:
-    steps:
-      - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum 'composer.json'}}
-          - v1-dependencies-
-  save-composer:
-    steps:
-      - save_cache:
-        paths:
-          - ./vender
-        key: v1-dependencies-{{ checksum 'composer.json'}}
-
 jobs:
   build:
-    # docker:
-    #   - image: circleci/php:7.2-apache-browsers
-    # working_directory: ~/repo
-    executor:
-      name: default
+    docker:
+      - image: circleci/php:7.2-apache-browsers
+    working_directory: ~/repo
     steps:
       - checkout
-      # - restore-composer
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "composer.json" }}
@@ -40,7 +17,6 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
-      # - save-composer
       - run:
           name: Install some basic tools
           command: |
