@@ -29,7 +29,7 @@ jobs:
       name: default
     steps:
       - checkout
-      - restore_cache
+      - restore-composer
       # - restore_cache:
       #     keys:
       #       - v1-dependencies-{{ checksum "composer.json" }}
@@ -40,7 +40,7 @@ jobs:
       #     paths:
       #       - ./vendor
       #     key: v1-dependencies-{{ checksum "composer.json" }}
-      - save_cache
+      - save-composer
       - run:
           name: Install some basic tools
           command: |
