@@ -1,25 +1,25 @@
 version: 2.1
-
+# 実行環境
 executors:
   default:
     working_directory: ~/repo
     docker:
       - image: circleci/php:7.2-apache-browsers
-
+# コマンド設定(≒method)
 commands:
   restore-composer:
     steps:
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum 'composer.json'}}
+            - v1-dependencies-{{ checksum "composer.json"}}
             - v1-dependencies-
   save-composer:
     steps:
       - save_cache:
           paths:
             - ./vender
-          key: v1-dependencies-{{ checksum 'composer.json'}}
-
+          key: v1-dependencies-{{ checksum "composer.json"}}
+# 実行
 jobs:
   build:
     executor:
