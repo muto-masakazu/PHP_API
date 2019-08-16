@@ -20,7 +20,7 @@ class sampleTest extends TestCase
         //     //echo $row->name;
         // }
         //評価
-        $this->assertEquals("muto-masakazu",$status);
+        $this->assertEquals("muto-masakazu", $status);
         $this->assertEquals("muto-masakazu",$message);
         // $this->assertRegExp('/^Hello.+\.$/',$message);
         // $this->assertCount(2,$rows);
